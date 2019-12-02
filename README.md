@@ -1,5 +1,5 @@
 # 情報処理学会全国大会用テンプレート
-`maketitle` コマンドの再定義部分については jsclasses(Haruhiko Okumura, Japanese TeX Development Community) の `maketitle` コマンドを改変しています。
+`maketitle` コマンドの再定義部分については [jsclasses(Haruhiko Okumura, Japanese TeX Development Community)](https://github.com/texjporg/jsclasses) の `maketitle` コマンドを改変しています。
 
 ## 動作確認環境
 * MacTeX (2019.0410)
