@@ -1,4 +1,6 @@
 # 情報処理学会全国大会用テンプレート
+`maketitle` コマンドの再定義部分については jsclasses(Haruhiko Okumura, Japanese TeX Development Community) の `maketitle` コマンドを改変しています。
+
 ## 動作確認環境
 * MacTeX (2019.0410)
 * upLaTeX (e-upTeX 3.14159265-p3.8.2-u1.25-190131-2.6 (utf8.uptex) (TeX Live 2019))
