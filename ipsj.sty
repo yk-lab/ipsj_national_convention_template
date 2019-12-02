@@ -1,0 +1,54 @@
+\geometry{noheadfoot,top=30truemm,bottom=25truemm,hmargin=20truemm}
+
+\setlength{\columnsep}{7mm}
+
+\renewcommand\footnoterule{\rule{\linewidth}{0.6pt}}
+
+\pagestyle{empty}
+
+\def\title#1#2{%
+\def\@titleJa{#1}
+\def\@titleEn{#2}
+}
+
+\newcount\author@count
+\advance\author@count\@ne
+
+\def\author#1#2#3{%
+\advance\author@count\@ne
+\expandafter\def\csname authorAffiliate\the\author@count\endcsname{#1}
+\expandafter\def\csname authorName\the\author@count\endcsname{#2}
+\expandafter\def\csname authorEn\the\author@count\endcsname{#3}
+}
+
+% title style
+\def\@maketitle{
+\newpage\null
+\begin{center}
+% output title
+\setcounter{footnote}{-1}  % no footnote symbol
+{\fontsize{16truept}{0pt}\selectfont\@titleJa\thanks{\fontsize{9truept}{0truept}\selectfont\@titleEn}}\\
+{\fontsize{10.5pt}{0truept}\selectfont
+\begin{center}
+% output authors
+\setcounter{footnote}{1}  % start footnote symbol: dagger
+{
+\advance\author@count\@ne
+\count@\tw@
+\@whilenum{\count@<\author@count}\do{
+\edef\xx@tl{\noexpand\begin{tabular}{c}\noexpand}
+\xx@mktbl@app{\noexpand\vspace{5pt}\csname authorName\the\count@\endcsname\noexpand\thanks{\noexpand\fontsize{9truept}{0truept}\noexpand\selectfont\csname authorEn\the\count@\endcsname}
+\noexpand\\}
+\xx@mktbl@app{\noexpand\vspace{5pt}\csname authorAffiliate\the\count@\endcsname\noexpand\footnotemark[\count@]\noexpand\\}
+\xx@mktbl@app{\noexpand\end{tabular}}\xx@tl
+\advance\count@\@ne
+}
+}
+\end{center}
+}
+\end{center}
+\vskip2\Cvs
+% \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}\vskip1.5em\fi
+}
+\def\xx@mktbl@app#1{\edef\xx@tmp{#1}\toks\tw@\expandafter{\xx@tmp}%
+  \toks@\expandafter{\xx@tl}\edef\xx@tl{\the\toks@\the\toks\tw@}}
